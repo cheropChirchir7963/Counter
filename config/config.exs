@@ -14,6 +14,18 @@ config :counter, CounterWeb.Endpoint,
   pubsub_server: Counter.PubSub,
   live_view: [signing_salt: "omYYCovd"]
 
+# Configure tailwind
+config :tailwind,
+  version: "3.0.23",
+  default: [
+    args: ~w(
+    --config=tailwind.config.js
+    --input=css/app.css
+    --output=../priv/static/assets/app.css
+  ),
+    cd: Path.expand("../assets", __DIR__)
+  ]
+
 # Configure esbuild (the version is required)
 config :esbuild,
   version: "0.14.0",
